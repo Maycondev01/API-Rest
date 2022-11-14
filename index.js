@@ -1,6 +1,9 @@
 const express = require('express')
 const app = express();
 const bodyParser = require("body-parser");
+const cors = require('cors');
+
+app.use(cors());
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -28,13 +31,12 @@ var DB = {
         }
     ]
 }
-
-app.get("/games", (req, res) => {
+app.get("/games", (req, res) => { // Ver todos os Games
     res.statusCode = 200;
     res.json(DB.games);
 })
 
-app.get("/games/:id", (req, res) => {
+app.get("/games/:id", (req, res) => { // Ver Por Id
     if (isNaN(req.params.id)) {
         res.sendStatus(400);
     } else {
@@ -50,8 +52,7 @@ app.get("/games/:id", (req, res) => {
         }
     }
 })
-
-app.post("/game", (req, res) => {
+app.post("/game", (req, res) => { // Adicionar Novo Game
     var { title, price, year } = req.body;
 
     DB.games.push({
@@ -64,8 +65,7 @@ app.post("/game", (req, res) => {
     res.sendStatus(200)
 
 })
-
-app.delete("/game/:id", (req, res) => {
+app.delete("/game/:id", (req, res) => { // Deletar o Game
     if (isNaN(req.params.id)) {
         res.sendStatus(400)
     } else {
@@ -80,8 +80,7 @@ app.delete("/game/:id", (req, res) => {
         }
     }
 })
-
-app.put("/game/:id", (req, res) => {
+app.put("/game/:id", (req, res) => { // Editar o Game
     if (isNaN(req.params.id)) {
         res.sendStatus(400);
     } else {
@@ -115,7 +114,6 @@ app.put("/game/:id", (req, res) => {
         }
     }
 })
-
 app.listen(3000, function (error) {
     if (error) {
         console.log(error)
