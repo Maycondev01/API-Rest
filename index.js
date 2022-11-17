@@ -77,7 +77,8 @@ var DB = {
 }
 app.get("/games", auth, (req, res) => { // Ver todos os Games
     res.statusCode = 200;
-    res.json({empresa: req.empresa, users: req.loggedUser, games: DB.games}); // Usando variável que eu criei dentro do Middleware
+    res.json(DB.games);
+    // res.json({empresa: req.empresa, users: req.loggedUser, games: DB.games});  Usando variável que eu criei dentro do Middleware
 })
 
 app.get("/games/:id",auth, (req, res) => { // Ver Por Id
