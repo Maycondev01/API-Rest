@@ -58,6 +58,8 @@ Exemplo:
 ##### OK! 200
 Caso essa resposta aconteça você ira receber o token JWT para conseguir acessar endpoints protegidos na API.
 Exemplo de resposta:
+![markdown1](https://user-images.githubusercontent.com/89277603/203190469-4561ba45-22ed-41c7-b2d8-6af82b5bac14.PNG)
+
 ```
 {
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJncmVpY2VzaWx2YUBnbWFpbC5jb20iLCJpYXQiOjE2NjkwNzc3MTksImV4cCI6MTY2OTI1MDUxOX0.KtArni4uYaB7-LOXncqnrwVqXkuZINuYZyO_sttnX4o"
@@ -69,4 +71,5 @@ Exemplo de resposta:
 ```
 { err: "Credenciais erradas!" }
 ```
+
 
